@@ -15,7 +15,7 @@ STEP 0:
 
 STEP 1:
   Create a slice of state called 'inputValue' and its 'setInputValue' buddy.
-  We should initialize this state to the empty string.
+  We should ini tialize this state to the empty string.
 
 STEP 2:
   Make the color of the text be crimson if the length of 'inputValue' goes over ten.
@@ -44,13 +44,14 @@ export default function Input() {
     // When the input changes, its whole value can be found inside the event object.
     // Log out the synthetic event object 'evt' and see for yourself.
     const { value } = evt.target;
-    console.log(evt)
+    setInputValue(value)
 
     /* STEP 4 */
 
   };
   const reset = () => {
     /* STEP 5 */
+    setInputValue('')
   };
 
   const style = {
@@ -63,7 +64,7 @@ export default function Input() {
   return (
     <div className='widget-input container'>
       <h2>Input</h2>
-      <div id='output' style={style}></div> {/* STEP 3 */}
+  <div id='output' style={style}>{inputValue}</div> {/* STEP 3 */}
       <div>
         <input id='input' type='text' onChange={changeInput} /> {/* STEP 6 */}
         <button id='resetInput' onClick={reset}>Reset</button>
